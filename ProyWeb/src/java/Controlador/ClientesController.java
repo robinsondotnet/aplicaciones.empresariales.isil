@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Karen
  */
-public class ControladorClientes extends HttpServlet {
+public class ClientesController extends BaseController {
     
     String listar="vistas/listar.jsp";
     String add="vistas/add.jsp";
@@ -42,7 +42,7 @@ public class ControladorClientes extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
         
-         String acceso ="";
+        String acceso ="";
         String action =request.getParameter("accion");
         if(action.equalsIgnoreCase("listar")){
             
