@@ -27,5 +27,6 @@
             <button type="sumit" name="accion" value="Agregar">Agregar</button><br>
             <a href="ClientesController?accion=listar">Regresar</a>
         </form>
+        <%@include  file="../jspf/js.jspf"%>
     </body>
 </html>

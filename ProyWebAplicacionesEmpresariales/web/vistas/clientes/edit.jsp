@@ -14,6 +14,12 @@
         <title>JSP Page</title>
     </head>
     <body>
+        
+        <div id="container-fluid">
+            <%@include  file="../jspf/header.jspf"%>
+       
+        
+       
         <% Integer id_cliente = (Integer) request.getSession().getAttribute("id_cliente");%>
         
         <div class="container-fluid">
@@ -38,5 +44,8 @@
             
         </form>
         </div>
+        <%@include  file="../jspf/js.jspf"%>
+        
+         </div>
     </body>
 </html>

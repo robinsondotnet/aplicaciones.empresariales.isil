@@ -9,9 +9,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <%@include  file="../jspf/estilos.jspf"%>
         <title>JSP Page</title>
     </head>
     <body>
+        
+        <div id="container-fluid">
+            <%@include  file="../jspf/header.jspf"%>
         <h1>Agregar Cliente</h1>
         <form action="ControladorClientes">
             Razon Social: <br>
@@ -26,5 +30,8 @@
             <button type="sumit" name="accion" value="Agregar">Agregar</button><br>
             <a href="ControladorClientes?accion=listar">Regresar</a>
         </form>
+        <%@include  file="../jspf/js.jspf"%>
+        
+        </div>
     </body>
 </html>

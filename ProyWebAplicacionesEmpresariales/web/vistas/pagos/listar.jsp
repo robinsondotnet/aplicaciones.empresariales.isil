@@ -50,6 +50,6 @@
             <%}%>
         </tbody>
     </table>
-    
+    <%@include  file="../jspf/js.jspf"%>
     </body>
 </html>
