@@ -9,9 +9,12 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <%@include  file="WEB-INF/jspf/estilos.jspf"%>
         <title>JSP Page</title>
     </head>
     <body>
+        <div id="container-fluid">
+            <%@include  file="WEB-INF/jspf/header.jspf"%>
         <h1> clientes</h1>
         <a href="ClientesController?accion=add">Agregar Nuevo</a>
     
@@ -49,6 +52,7 @@
             <%}%>
         </tbody>
     </table>
-    
+        </div>
+        <%@include  file="WEB-INF/jspf/js.jspf"%>
     </body>
 </html>

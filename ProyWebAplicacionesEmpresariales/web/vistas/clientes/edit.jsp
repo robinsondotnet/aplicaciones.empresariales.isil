@@ -10,11 +10,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <%@include  file="WEB-INF/jspf/estilos.jspf"%>
         <title>JSP Page</title>
     </head>
     <body>
+        <div class="container-fluid">
         
-        
+        <%@include  file="WEB-INF/jspf/header.jspf"%>
         
         <h1>Modificar Cliente</h1>
         <form action="ControladorClientes">
@@ -31,7 +33,8 @@
             <button type="sumit" name="accion" value="Agregar">Actualizar</button><br>
             
             <a href="ClientesController?accion=listar">Regresar</a>
+            
         </form>
-        
+        </div>
     </body>
 </html>
