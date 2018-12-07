@@ -59,6 +59,8 @@ public class ClientesController extends BaseController {
     protected void getEditar(HttpServletRequest request) {
         super.getEditar(request); //To change body of generated methods, choose Tools | Templates.
         request.setAttribute("idcli", request.getParameter("id_cliente"));
+        
+        Cliente cliente = dao.list(Integer.parseInt(request.getParameter("id_cliente")));
     }
 
 }

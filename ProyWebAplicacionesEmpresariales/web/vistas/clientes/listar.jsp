@@ -13,7 +13,7 @@
     </head>
     <body>
         <h1> clientes</h1>
-        <a href="ControladorClientes?accion=add">Agregar Nuevo</a>
+        <a href="ClientesController?accion=add">Agregar Nuevo</a>
     
     <table border="1">
         <thead>
@@ -42,7 +42,7 @@
                 <td><%=cli.getNum_doc()%></td>
                 <td><%=cli.getEmail()%></td>
                 <td>
-                    <a href="ControladorClientes?accion=editar&id=<%=cli.getId_cliene()%>">Edit</a>
+                    <a href="ClientesController?accion=editar&id=<%=cli.getId_cliene()%>">Edit</a>
                     <a>Remove</a>
                 </td>
             </tr>

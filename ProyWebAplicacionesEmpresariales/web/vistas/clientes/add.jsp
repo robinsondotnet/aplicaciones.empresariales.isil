@@ -13,7 +13,7 @@
     </head>
     <body>
         <h1>Agregar Cliente</h1>
-        <form action="ControladorClientes">
+        <form action="ClientesController">
             Razon Social: <br>
             <input type="text" name="txtRazSocail"><br>
             Documento: <br>
@@ -24,7 +24,7 @@
             <input type="text" name="txtMail"><br>
             
             <button type="sumit" name="accion" value="Agregar">Agregar</button><br>
-            <a href="ControladorClientes?accion=listar">Regresar</a>
+            <a href="ClientesController?accion=listar">Regresar</a>
         </form>
     </body>
 </html>

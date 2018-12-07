@@ -3,7 +3,8 @@
     Created on : Nov 29, 2018, 2:16:29 AM
     Author     : Karen
 --%>
-
+<%@page import="Modelo.Cliente"%>
+<%@page import="ModeloDAO.ClienteDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -29,7 +30,7 @@
             
             <button type="sumit" name="accion" value="Agregar">Actualizar</button><br>
             
-            <a href="ControladorClientes?accion=listar">Regresar</a>
+            <a href="ClientesController?accion=listar">Regresar</a>
         </form>
         
     </body>

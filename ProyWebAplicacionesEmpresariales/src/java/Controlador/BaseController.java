@@ -30,7 +30,7 @@ public abstract class BaseController extends HttpServlet {
     }
     
     private String getEditarViewName() {
-        return "vistas/" + getModuleName() + "/listar.jsp"; //To change body of generated methods, choose Tools | Templates.
+        return "vistas/" + getModuleName() + "/edit.jsp"; //To change body of generated methods, choose Tools | Templates.
     }
     
     private String getAgregarViewName() {
@@ -38,7 +38,7 @@ public abstract class BaseController extends HttpServlet {
     }
     
     private String getListarViewName() {
-        return "vistas/" + getModuleName()  + "/edit.jsp"; //To change body of generated methods, choose Tools | Templates.
+        return "vistas/" + getModuleName()  + "/listar.jsp"; //To change body of generated methods, choose Tools | Templates.
     }
     
     protected void getListar(HttpServletRequest request) {
