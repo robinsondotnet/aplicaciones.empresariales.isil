@@ -10,13 +10,15 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <%@include  file="WEB-INF/jspf/estilos.jspf"%>
+        <%@include  file="../jspf/estilos.jspf"%>
         <title>JSP Page</title>
     </head>
     <body>
+        <% Integer id_cliente = (Integer) request.getSession().getAttribute("id_cliente");%>
+        
         <div class="container-fluid">
         
-        <%@include  file="WEB-INF/jspf/header.jspf"%>
+        <%@include  file="../jspf/header.jspf"%>
         
         <h1>Modificar Cliente</h1>
         <form action="ControladorClientes">
