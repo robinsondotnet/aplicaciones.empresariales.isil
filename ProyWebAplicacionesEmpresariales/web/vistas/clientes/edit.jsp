@@ -14,25 +14,29 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <% Integer id_cliente = (Integer) request.getSession().getAttribute("id_cliente");%>
+        <% 
+            String id_cliente = (String) request.getParameter("id");
+            ClienteDAO dao = new ClienteDAO();
+            Cliente cli = dao.list(Integer.parseInt(id_cliente));
+        %>
         
         <div class="container-fluid">
         
         <%@include  file="../jspf/header.jspf"%>
         
         <h1>Modificar Cliente</h1>
-        <form action="ControladorClientes">
+        <form action="ClientesController">
             Razon Social: <br>
-            <input type="text" name="txtRazSocail" value=""><br>
+            <input type="text" name="txtRazSocail" value="<%= cli.getRazon_social() %>"><br>
             Documento: <br>
-            <input type="text" name="txtTipoDoc" value=""><br>
+            <input type="text" name="txtTipoDoc" value="<%= cli.getTip_doc() %>"><br>
             Numero documento: <br>
-            <input type="text" name="txtNumDoc" value=""><br>
+            <input type="text" name="txtNumDoc" value="<%= cli.getNum_doc() %>"><br>
             Email: <br>
-            <input type="text" name="txtMail" value=""><br>
-            <input type="hidden" name="txtid_cliente" value="">
+            <input type="text" name="txtMail" value="<%= cli.getEmail() %>"><br>
+            <input type="hidden" name="id_cliente" value="<%= cli.getId_cliene() %>">
             
-            <button type="sumit" name="accion" value="Agregar">Actualizar</button><br>
+            <button type="sumit" name="accion" value="Actualizar">Actualizar</button><br>
             
             <a href="ClientesController?accion=listar">Regresar</a>
             

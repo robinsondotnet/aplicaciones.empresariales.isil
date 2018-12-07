@@ -47,13 +47,13 @@ public class ClienteDAO implements CRUD{
     @Override
     public Cliente list(int id_cliente) {
         
-        String sql="select * from cliente where id_cliene="+id_cliente;
+        String sql="select * from cliente where id_cliente="+id_cliente;
         try {
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
             rs=ps.executeQuery();
             while(rs.next()){
-                c.setId_cliene(rs.getInt("Id_cliente"));
+                c.setId_cliene(rs.getInt("id_cliente"));
                 c.setRazon_social(rs.getString("razon_social"));
                 c.setTip_doc(rs.getString("tipo_doc"));
                 c.setNum_doc(rs.getString("num_doc"));
@@ -70,7 +70,7 @@ public class ClienteDAO implements CRUD{
 
     @Override
     public boolean add(Cliente cli) {
-        String sql="insert into cliente(razSoc,Documeno,numDocumento,Email )values('"+cli.getRazon_social()+"','"+cli.getTip_doc()+"', '"+cli.getNum_doc()+"','"+cli.getEmail()+"'";
+        String sql="insert into cliente(razon_social,tipo_doc,num_doc,email )values('"+cli.getRazon_social()+"','"+cli.getTip_doc()+"', '"+cli.getNum_doc()+"','"+cli.getEmail()+"')";
         try {
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
@@ -82,7 +82,7 @@ public class ClienteDAO implements CRUD{
 
     @Override
     public boolean edit(Cliente cli) {
-        String sql="insert update cliente razSoc='"+cli.getRazon_social()+"', Documento='"+cli.getTip_doc()+"', numDocumento='"+cli.getNum_doc()+"',Email='"+cli.getEmail()+"'where Id_cliene="+cli.getId_cliene();
+        String sql="update cliente set razon_social='"+cli.getRazon_social()+"', tipo_doc='"+cli.getTip_doc()+"', num_doc='"+cli.getNum_doc()+"',email='"+cli.getEmail()+"' where id_cliente="+cli.getId_cliene();
 
         try {
             con=cn.getConnection();
