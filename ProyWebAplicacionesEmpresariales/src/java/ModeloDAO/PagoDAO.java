@@ -3,7 +3,7 @@ package ModeloDAO;
 
 import Config.Conexion;
 import Interfaces.CRUD;
-import Modelo.Cliente;
+import Modelo.Pago;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,29 +12,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class PagoDAO implements CRUD{
+public class PagoDAO implements CRUD<Pago>{
     Conexion cn = new Conexion();
     Connection con;
     PreparedStatement ps;
     ResultSet rs;
-    Cliente c=new Cliente();
 
     @Override
     public List listar() {
-        ArrayList<Cliente>list= new ArrayList<>();
-        String sql="select * from cliente";
+        ArrayList<Pago>list= new ArrayList<>();
+        String sql="select * from consumo";
         try {
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
             rs=ps.executeQuery();
             while(rs.next()){
-                Cliente cli=new Cliente();
-                cli.setId_cliene(rs.getInt("id_cliente"));
-                cli.setRazon_social(rs.getString("razon_social"));
-                cli.setTip_doc(rs.getString("tipo_doc"));
-                cli.setNum_doc(rs.getString("num_doc"));
-                cli.setEmail(rs.getString("email"));
-                list.add(cli);
+                Pago pago = new Pago();
+                pago.setId_consumo(rs.getInt("id_consumo"));
+                pago.setId_producto(rs.getInt("id_producto"));
+                pago.setMesa(rs.getString("mesa"));
+                pago.setPrecio(rs.getDouble("precio"));
+                
+                list.add(pago);
             }
         } catch (SQLException e) {
         }
@@ -45,32 +44,32 @@ public class PagoDAO implements CRUD{
     }
 
     @Override
-    public Cliente list(int id_cliente) {
-        
-        String sql="select * from cliente where id_cliene="+id_cliente;
+    public Pago list(int id_consumo) {
+        Pago pago = new Pago();
+        String sql="select * from consumo where id_consumo="+ id_consumo;
         try {
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
             rs=ps.executeQuery();
             while(rs.next()){
-                c.setId_cliene(rs.getInt("Id_cliente"));
-                c.setRazon_social(rs.getString("razon_social"));
-                c.setTip_doc(rs.getString("tipo_doc"));
-                c.setNum_doc(rs.getString("num_doc"));
-                c.setEmail(rs.getString("email"));
                 
+                pago.setId_consumo(rs.getInt("id_consumo"));
+                pago.setId_producto(rs.getInt("id_producto"));
+                pago.setMesa(rs.getString("mesa"));
+                pago.setPrecio(rs.getDouble("precio"));
+                
+                return pago;
             }
-        } catch (Exception e) {
+        } catch (SQLException e) {
+            
         }
         
-        
-        return c;
-
+        return pago;
     }
 
     @Override
-    public boolean add(Cliente cli) {
-        String sql="insert into cliente(razSoc,Documeno,numDocumento,Email )values('"+cli.getRazon_social()+"','"+cli.getTip_doc()+"', '"+cli.getNum_doc()+"','"+cli.getEmail()+"'";
+    public boolean add(Pago cli) {
+        String sql="insert into consumo(id_producto,mesa,precio )values('"+cli.getId_producto()+"','"+cli.getMesa()+"', '"+cli.getPrecio()+"')";
         try {
             con=cn.getConnection();
             ps=con.prepareStatement(sql);
@@ -81,8 +80,8 @@ public class PagoDAO implements CRUD{
     }
 
     @Override
-    public boolean edit(Cliente cli) {
-        String sql="insert update cliente razSoc='"+cli.getRazon_social()+"', Documento='"+cli.getTip_doc()+"', numDocumento='"+cli.getNum_doc()+"',Email='"+cli.getEmail()+"'where Id_cliene="+cli.getId_cliene();
+    public boolean edit(Pago cli) {
+        String sql="update consumo set id_producto='"+cli.getId_producto()+"', mesa='"+cli.getMesa()+"', precio='"+cli.getPrecio()+"' where id_consumo="+cli.getId_consumo();
 
         try {
             con=cn.getConnection();

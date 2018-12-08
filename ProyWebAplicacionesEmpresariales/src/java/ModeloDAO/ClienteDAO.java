@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class ClienteDAO implements CRUD{
+public class ClienteDAO implements CRUD<Cliente>{
     Conexion cn = new Conexion();
     Connection con;
     PreparedStatement ps;

@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
  *
  * @author Karen
  */
-public class PedidosController extends BaseController {
+public class ProductosController extends BaseController {
        @Override
     protected String getModuleName() {
         return "pedidos"; //To change body of generated methods, choose Tools | Templates.
