@@ -61,6 +61,10 @@ public abstract class BaseController extends HttpServlet {
         acceso = getListarViewName();
     }
     
+    protected void getBuscar(HttpServletRequest request, HttpServletResponse response) {
+    
+    }
+    
    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -82,6 +86,10 @@ public abstract class BaseController extends HttpServlet {
         }
         else if(action.equalsIgnoreCase("Actualizar")){
             postEditar(request);
+        }
+        else if(action.equalsIgnoreCase("buscar")) {
+            getBuscar(request, response);
+            return;
         }
         RequestDispatcher vista=request.getRequestDispatcher(acceso);
         vista.forward(request, response);

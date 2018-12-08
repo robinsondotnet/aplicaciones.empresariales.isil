@@ -7,6 +7,7 @@ package Controlador;
 
 import Modelo.Cliente;
 import ModeloDAO.ClienteDAO;
+import ModeloDAO.PagoDAO;
 import javax.servlet.http.HttpServletRequest;
 
 /**
@@ -14,6 +15,8 @@ import javax.servlet.http.HttpServletRequest;
  * @author Karen
  */
 public class PagosController extends BaseController {
+    
+    PagoDAO pagoDAO = new PagoDAO();
     
     @Override
     protected String getModuleName() {

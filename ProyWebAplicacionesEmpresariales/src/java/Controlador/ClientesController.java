@@ -20,7 +20,7 @@ public class ClientesController extends BaseController {
         return "clientes"; //To change body of generated methods, choose Tools | Templates.
     }
 
-    ClienteDAO dao=new ClienteDAO();
+    ClienteDAO clienteDAO=new ClienteDAO();
    
     @Override
     protected void postEditar(HttpServletRequest request) {
@@ -37,7 +37,7 @@ public class ClientesController extends BaseController {
         c.setTip_doc(doc);
         c.setNum_doc(numDoc);
         c.setEmail(email);
-        dao.edit(c);
+        clienteDAO.edit(c);
     }
 
     @Override
@@ -53,7 +53,7 @@ public class ClientesController extends BaseController {
         c.setTip_doc(doc);
         c.setNum_doc(numDoc);
         c.setEmail(email);
-        dao.add(c);
+        clienteDAO.add(c);
     }
 
     @Override

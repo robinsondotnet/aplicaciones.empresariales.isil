@@ -28,10 +28,15 @@
             <input type="text" name="txtMail" value=""><br>
             <input type="hidden" name="txtid_cliente" value="">
             
+            <input type="hidden" name="id_producto" value="">
+            
             <button type="sumit" name="accion" value="Agregar">Actualizar</button><br>
             
             <a href="ControladorClientes?accion=listar">Regresar</a>
         </form>
         <%@include  file="../jspf/js.jspf"%>
+        <script>
+            
+        </script>
     </body>
 </html>

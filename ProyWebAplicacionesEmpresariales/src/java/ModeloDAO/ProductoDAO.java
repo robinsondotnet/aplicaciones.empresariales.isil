@@ -18,6 +18,30 @@ public class ProductoDAO implements CRUD<Producto> {
     PreparedStatement ps;
     ResultSet rs;
 
+    public List buscar(String searchText) {
+        ArrayList<Producto> list = new ArrayList<>();
+        String sql = "select * from producto where descripcion='%" + searchText + "%'";
+        try {
+            con = cn.getConnection();
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Producto cli = new Producto();
+                cli.setId_producto(rs.getInt("id_producto"));
+                cli.setDescripcion(rs.getString("descripcion"));
+                cli.setPrecio(rs.getDouble("precio"));
+                cli.setStock(rs.getInt("stock"));
+                cli.setId_categoria(rs.getInt("id_categoria"));
+                cli.setFoto(rs.getString("foto"));
+
+                list.add(cli);
+            }
+        } catch (SQLException e) {
+        }
+        
+        return list;
+    }
+    
     @Override
     public List listar() {
         ArrayList<Producto> list = new ArrayList<>();
@@ -99,5 +123,6 @@ public class ProductoDAO implements CRUD<Producto> {
     public boolean eliminar(int id_cliente) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+   
 
 }

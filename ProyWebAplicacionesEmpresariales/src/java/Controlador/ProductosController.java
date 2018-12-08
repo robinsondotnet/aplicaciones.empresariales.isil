@@ -7,16 +7,41 @@ package Controlador;
 
 import Modelo.Cliente;
 import ModeloDAO.ClienteDAO;
+import ModeloDAO.ProductoDAO;
+import com.google.gson.Gson;
+import java.io.IOException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  *
  * @author Karen
  */
 public class ProductosController extends BaseController {
+
+    ProductoDAO productoDAO = new ProductoDAO();
+    
+    @Override
+    protected void getBuscar(HttpServletRequest request, HttpServletResponse response) {
+        String textSearch = request.getParameter("text");
+        List productos = productoDAO.buscar(textSearch);
+        
+        String json = new Gson().toJson(productos);
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+        try {
+            response.getWriter().write(json);
+        } catch (IOException ex) {
+            Logger.getLogger(ProductosController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
        @Override
     protected String getModuleName() {
-        return "pedidos"; //To change body of generated methods, choose Tools | Templates.
+        return "productos"; //To change body of generated methods, choose Tools | Templates.
     }
 
     ClienteDAO dao=new ClienteDAO();

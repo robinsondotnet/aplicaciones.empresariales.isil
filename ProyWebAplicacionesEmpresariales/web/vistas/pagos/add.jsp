@@ -24,10 +24,24 @@
             Email: <br>
             <input type="text" name="txtMail"><br>
             
+            <input type="text" id="txtSearch" onblur="" name="txtSearch"><br>
+             <input type="hidden" name="id_producto" value="">
+            
+            
             <button type="sumit" name="accion" value="Agregar">Agregar</button><br>
             <a href="ControladorClientes?accion=listar">Regresar</a>
         </form>
         
         <%@include  file="../jspf/js.jspf"%>
+        <script>
+            function onTextChanged(){
+                let queryString = $("#txtSearch")
+                $.getJSON("ProductosController?accion=buscar&text="+ queryString, function (data) {
+                    
+                });
+            }
+            
+            
+        </script>
     </body>
 </html>
