@@ -13,6 +13,8 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <div id="container-fluid">
+            <%@include  file="../jspf/header.jspf"%>
         <h1>Agregar Cliente</h1>
         <form action="ClientesController">
             Razon Social: <br>
@@ -27,6 +29,9 @@
             <button type="sumit" name="accion" value="Agregar">Agregar</button><br>
             <a href="ClientesController?accion=listar">Regresar</a>
         </form>
+         </div>
         <%@include  file="../jspf/js.jspf"%>
+        
+       
     </body>
 </html>
