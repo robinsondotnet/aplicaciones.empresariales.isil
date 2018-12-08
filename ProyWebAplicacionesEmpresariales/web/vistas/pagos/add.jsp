@@ -13,6 +13,10 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <div id="container-fluid">
+        <%@include  file="../jspf/header.jspf"%>
+        <%@include  file="../jspf/nav.jspf"%>
+        
         <h1>Agregar Cliente</h1>
         <form action="ControladorClientes">
             Razon Social: <br>
@@ -31,7 +35,7 @@
             <button type="sumit" name="accion" value="Agregar">Agregar</button><br>
             <a href="ControladorClientes?accion=listar">Regresar</a>
         </form>
-        
+        </div>
         <%@include  file="../jspf/js.jspf"%>
         <script>
             function onTextChanged(){

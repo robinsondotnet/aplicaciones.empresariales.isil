@@ -13,6 +13,7 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <div id="container-fluid">
         <h1> clientes</h1>
         <a href="ControladorClientes?accion=add">Agregar Nuevo</a>
     
@@ -52,6 +53,6 @@
             <%@include  file="../jspf/js.jspf"%>
         </tbody>
     </table>
-    
+        </div>
     </body>
 </html>

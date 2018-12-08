@@ -13,7 +13,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        
+        <div id="container-fluid">
         
         
         <h1>Modificar Cliente</h1>
@@ -35,6 +35,7 @@
             <a href="ControladorClientes?accion=listar">Regresar</a>
         </form>
         <%@include  file="../jspf/js.jspf"%>
+        </div>
         <script>
             
         </script>

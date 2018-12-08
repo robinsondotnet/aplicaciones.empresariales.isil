@@ -20,8 +20,7 @@
        
         
        
-       
-
+    
         <% 
             String id_cliente = (String) request.getParameter("id");
             ClienteDAO dao = new ClienteDAO();

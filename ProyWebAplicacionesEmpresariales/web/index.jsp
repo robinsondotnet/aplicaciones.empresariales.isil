@@ -12,12 +12,16 @@
     <body>
         <div id="container-fluid">
             <%@include  file="vistas/jspf/header.jspf"%>
-        <a href="ClientesController?accion=listar">Listar clientes</a>
-        <a href="PagosController?accion=listar">Listar pagos</a>
-        <a href="PedidosController?accion=listar">Listar pedidos</a>
+            <%@include  file="vistas/jspf/nav.jspf"%>
+            
         
-        <%@include  file="vistas/jspf/footer.jspf"%>
+        
+         <%@include  file="vistas/jspf/footer.jspf"%>
         </div>
+            
         <%@include  file="vistas/jspf/js.jspf"%>
+        
     </body>
+    
+   
 </html>
